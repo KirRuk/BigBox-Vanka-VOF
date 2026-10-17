@@ -1,0 +1,7 @@
+# Boundary types:fixed_value or convective_boundary
+E fixed_value 0.0
+W fixed_value 0.0
+N fixed_value 0.0
+S fixed_value 0.0
+F fixed_value 0.0
+B fixed_value 0.0

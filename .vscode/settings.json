@@ -1,0 +1,7 @@
+{
+    "cmake.cmakePath": "/gpfs0/feldy/users/kirillg/env/intel_base/bin/cmake",
+    "cmake.preferredGenerators": ["Ninja"],
+    "cmake.configureEnvironment": {
+        "PATH": "${env:PATH}:/gpfs0/feldy/users/kirillg/env/intel_base/bin"
+    }
+}

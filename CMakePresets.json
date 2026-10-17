@@ -1,0 +1,119 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "windows-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "installDir": "${sourceDir}/out/install/${presetName}",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "icx",
+        "CMAKE_CXX_COMPILER": "icx"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "x64-debug",
+      "displayName": "x64 Debug",
+      "inherits": "windows-base",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_FLAGS_DEBUG": "/MDd /Zi /Od /Ob0 /RTC1 /fp:precise",
+        "CMAKE_CXX_FLAGS_DEBUG": "/MDd /Zi /Od /Ob0 /RTC1 /fp:precise",
+        "CMAKE_CXX_STANDARD": "20",
+        "CMAKE_CXX_STANDARD_REQUIRED": "YES"
+      }
+    },
+    {
+      "name": "x64-release",
+      "displayName": "x64 Release",
+      "inherits": "windows-base",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_FLAGS_RELEASE": "/MD /O3 /Ob2 /DNDEBUG /fp:precise -march=native",
+        "CMAKE_CXX_FLAGS_RELEASE": "/MD /O3 /Ob2 /DNDEBUG /fp:precise -march=native",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE": "ON",
+        "CMAKE_CXX_STANDARD": "20",
+        "CMAKE_CXX_STANDARD_REQUIRED": "YES"
+      }
+    },
+    {
+      "name": "linux-release",
+      "displayName": "Linux Release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "installDir": "${sourceDir}/out/install/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "icx",
+        "CMAKE_CXX_COMPILER": "icpx",
+        "CMAKE_C_FLAGS_RELEASE": "-O3 -DNDEBUG -fp-model=precise -march=native",
+        "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG -fp-model=precise -march=native",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE": "ON",
+        "CMAKE_CXX_STANDARD": "20",
+        "CMAKE_CXX_STANDARD_REQUIRED": "YES"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "linux-debug",
+      "displayName": "Linux Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "installDir": "${sourceDir}/out/install/${presetName}",
+      "cacheVariables": {   
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "icx",
+        "CMAKE_CXX_COMPILER": "icpx",
+        "CMAKE_C_FLAGS_DEBUG": "-g -fp-model=precise -march=native",
+        "CMAKE_CXX_FLAGS_DEBUG": "-g -fp-model=precise -march=native",
+        "CMAKE_CXX_STANDARD": "20",
+        "CMAKE_CXX_STANDARD_REQUIRED": "YES"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "macos-debug",
+      "displayName": "macOS Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "installDir": "${sourceDir}/out/install/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_FLAGS_DEBUG": "-g -O0 -Xclang -fopenmp -fp-model=precise",
+        "CMAKE_CXX_FLAGS_DEBUG": "-g -O0 -Xclang -fopenmp -fp-model=precise"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin"
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": {
+          "sourceDir": "$env{HOME}/.vs/$ms{projectDirName}"
+        }
+      }
+    }
+  ]
+}

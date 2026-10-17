@@ -1,0 +1,7 @@
+# Boundary types:fixed_value,slip, symetry or convective_boundary
+E slip 0.0
+W slip 0.0
+N fixed_value 0.0
+S fixed_value 0.0
+F fixed_value 0.0
+B fixed_value 0.0

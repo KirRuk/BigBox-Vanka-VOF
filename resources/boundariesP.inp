@@ -1,0 +1,10 @@
+# Boundary types p:dirichlet_point or dirichlet_row
+E dirichlet_point 0.0
+W fixed_value 0.0
+N fixed_value 0.0
+S fixed_value 0.0
+F fixed_value -2.0
+B dirichlet_point 1.0
+# For dirichlet_point W,N and S are X,Y,Z coordinates for the Dirichlet point(0-based)
+# For dirichlet_row W,N and S are X,Y,Z coordinates for the first Dirichlet point(0-based), B is number of points in the row and F is direction 1 - OX 2 - OY 3 - OZ
+# Both B and E should indicate Boundary type

@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Vanka_Feldman_patch_solver",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/out/build/linux-debug/Vanka_Feldman_patch_solver/Vanka_Feldman_patch_solver",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopOnEntry": false,
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        }
+    ]
+}

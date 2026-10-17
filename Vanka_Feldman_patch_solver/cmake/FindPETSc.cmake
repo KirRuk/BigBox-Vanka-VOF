@@ -1,0 +1,6 @@
+find_path(PETSC_INCLUDE_DIR petsc.h PATHS "$ENV{CONDA_PREFIX}/petsc-ilp64-install/include" REQUIRED)
+find_library(PETSC_LIBRARY petsc PATHS "$ENV{CONDA_PREFIX}/petsc-ilp64-install/lib" REQUIRED)
+
+set(PETSC_FOUND TRUE)
+set(PETSC_INCLUDE_DIRS ${PETSC_INCLUDE_DIR})
+set(PETSC_LIBRARIES ${PETSC_LIBRARY})
